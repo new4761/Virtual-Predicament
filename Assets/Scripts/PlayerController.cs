@@ -18,6 +18,6 @@ public class PlayerController : MonoBehaviour {
 	private void Update() {
 		var horizontal = Input.GetAxis("Horizontal");
 		var vertical = Input.GetAxis("Vertical");
-		player.Move(Vector3.forward);
+		//player.Move(Vector3.forward);
 	}
 }
