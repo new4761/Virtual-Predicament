@@ -3,14 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GazeInputController : MonoBehaviour {
+	public float MaxTimeFocus;
+	public int ActionID {
+		private get {
+			return ActionID;
+		}
+		set {
+			ActionID = value;
+		}
+	}
+	public bool IsFocus {
+		private get {
+			return IsFocus;
+		}
+		set {
+			IsFocus = value;
+		}
+	}
 
-	// Use this for initialization
-	void Start () {
-		
+	private bool isLoading;
+	private float timeFocus;
+
+	private void Start() {
+		isLoading = false;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+	private void Update() {
+		if (IsFocus && !isLoading) {
+			if (timeFocus + MaxTimeFocus < Time.time) {
+				//CallActionID(ActionID);
+			}
+		} else {
+			timeFocus = Time.time;
+		}
 	}
+
 }
