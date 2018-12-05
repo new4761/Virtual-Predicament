@@ -5,13 +5,21 @@
 /[Bb]uilds/
 
 # Unity paid plugins T_T
-/Assets/Plugins/EModules/
-/Assets/Plugins/GameFlow/
 /Assets/AssetsStore/
+/Assets/Plugins/EModules/
+/Assets/Plugins/EModules/Hierarchy/
+/Assets/Plugins/EModules/Project/
+/Assets/Plugins/GameFlow/
+/Assets/Plugins/Sirenix/
+/Assets/Plugins/Easy Save 3/
+/Assets/Plugins/WellFired/
 
 /Assets/AssetsStore.meta
 /Assets/Plugins/EModules.meta
 /Assets/Plugins/GameFlow.meta
+/Assets/Plugins/Sirenix.meta
+/Assets/Plugins/Easy Save 3.meta
+/Assets/Plugins/WellFired.meta
 
 # Visual Studio 2015 cache/options directory
 .vs/

@@ -2,7 +2,7 @@
 using UnityEngine.SceneManagement;
 public class Initial : MonoBehaviour {
 
-	void Awake () {
-		SceneManager.LoadScene(1);		
+	private void Awake() {
+		SceneManager.LoadScene(1);
 	}
 }

@@ -5,29 +5,48 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour {
 
 	public float MaxTimeFocus;
-	public string ActionName { get; set; }
-	public bool isFocus { get; set; }
-
-	private bool isLoading = false;
-	private float timeFocus;
-
-	private void Update() {
-		if (isFocus && !isLoading) {
-			if (timeFocus + MaxTimeFocus < Time.time) {
-				CallActionID(ActionName);
-			}
-			return;
+	public int ActionID {
+		private get {
+			return ActionID;
 		}
-		timeFocus = Time.time;
+		set {
+			ActionID = value;
+		}
+	}
+	public bool IsFocus {
+		private get {
+			return IsFocus;
+		}
+		set {
+			IsFocus = value;
+		}
 	}
 
-	private void CallActionID(string actionID) {
+	private bool isLoading;
+	private float timeFocus;
+
+	private void Start() {
+		isLoading = false;
+	}
+	private void Update() {
+		GazeUI();
+	}
+	private void GazeUI() {
+		if (IsFocus && !isLoading) {
+			if (timeFocus + MaxTimeFocus < Time.time) {
+				CallActionID(ActionID);
+			}
+		} else {
+			timeFocus = Time.time;
+		}
+	}
+	private void CallActionID(int actionID) {
 		switch (actionID) {
-			case "Load Situation One":
+			case 0:
 				isLoading = true;
 				SceneManager.LoadSceneAsync(2);
 				break;
-			case "  ":
+			case 1:
 				break;
 		}
 	}
