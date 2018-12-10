@@ -3,21 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
-[RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour {
 
-	public float speed;
+	public float speed = 6.0f;
 
-	private CharacterController player;
-	private Rigidbody rigidbody;
+	private CharacterController controller;
 
 	private void Start() {
-		player = GetComponent<CharacterController>();
-		rigidbody = GetComponent<Rigidbody>();
+		controller = GetComponent<CharacterController>();
 	}
 	private void Update() {
-		var horizontal = Input.GetAxis("Horizontal");
-		var vertical = Input.GetAxis("Vertical");
-		//player.Move(Vector3.forward);
+		if (Input.GetButton("Fire1") || Input.touchCount > 0) {
+			controller.Move(Camera.main.transform.TransformDirection(Vector3.forward) * speed * Time.deltaTime);
+		}
+		if (Input.GetButton("Fire2")) {
+
+		}
+		if (Input.GetButton("Cancel")) {
+			Time.timeScale = 0f;
+		}
 	}
 }
